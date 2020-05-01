@@ -7,6 +7,21 @@ A collection of my solutions to ruby coding challenges.
 ###### 01/05/20
 
 ```ruby
+# You will be given a number and you will need to return it as a string in Expanded Form. For example:
+def expanded_form(num)
+  exp = []
+  num.digits.map.each_with_index {|n, i| 
+    n == 0? next : exp.push(n.to_s + '0' * i)
+  }
+  exp.reverse.join(" + ")
+end
+
+p expanded_form(12) # => 10 + 2
+p expanded_form(42) # => 40 + 2
+p expanded_form(128312391823) # => 100000000000 + 20000000000 + 8000000000 + 300000000 + 10000000 + 2000000 + 300000 + 90000 + 1000 + 800 + 20 + 3
+```
+
+```ruby
 # Given a string, replace every letter with its position in the alphabet.
 # If anything in the text isn't a letter, ignore it and don't return it.
 def alphabet_position(text)
