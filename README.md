@@ -10,14 +10,15 @@ A collection of my solutions to ruby coding challenges.
 # Given a string, replace every letter with its position in the alphabet.
 # If anything in the text isn't a letter, ignore it and don't return it.
 def alphabet_position(text)
-  new = text.gsub(/\W|\d|_/,'').split('').map do |a|
-   p a
-  #  a.upcase.ord - 'A'.ord + 1
+  new = text.gsub(/\W|\d|_/, '').split('').map do |a|
+    a.upcase.ord - 'A'.ord + 1
   end
-  new.join(' ')
+  puts new.join(' ')
 end
 
-puts alphabet_position("The sunset sets at twelve o' clock.")
+alphabet_position("The sunset sets at twelve o' clock.")
+# => "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+
 ```
 
 ###### 25/04/20
@@ -27,7 +28,6 @@ puts alphabet_position("The sunset sets at twelve o' clock.")
 
 # "This is a test!", 1 -> "[hsi  ] + [et Ti sats!]" -> hsi  etTi sats!
 # "This is a test!", 2 -> "hsi  etTi sats!" -> "s eT ashi tist!"
-
 def encrypt(text, n)
   n.times do
     fir = ''
@@ -37,7 +37,7 @@ def encrypt(text, n)
     }
     text = fir + sec
   end
-  text
+  puts text
 end
 
 def decrypt(encrypted_text, n)
@@ -52,11 +52,14 @@ def decrypt(encrypted_text, n)
     end
     encrypted_text = str.join
   end
-  encrypted_text
+  puts encrypted_text
 end
 
-p encrypt('This is a test!', 2)
-p decrypt('hsi  etTi sats!', 1)
+encrypt('This is a test!', 2)
+# => "s eT ashi tist!"
+
+decrypt('hsi  etTi sats!', 1)
+# => "This is a test!"
 ```
 
 ###### 25/04/2020
@@ -65,10 +68,11 @@ p decrypt('hsi  etTi sats!', 1)
 # rearrange the digits to create the highest possible number.
 
 def descending_order(n)
-  n.digits.sort.reverse.join.to_i
+  puts n.digits.sort.reverse.join.to_i
 end
 
-puts descending_order(21445)
+descending_order(21441213034538452034977645)
+# => 98776555444444333322211100
 ```
 
 ###### 25/04/2020
@@ -78,14 +82,14 @@ puts descending_order(21445)
 
 def accum(str)
   new_str = []
-  p str = str.split('')
-  str.each_with_index do |l, i|
-    p new_str << (l * (i + 1)).capitalize
+  str.split('').each_with_index do |l, i|
+    new_str << (l * (i + 1)).capitalize
   end
-  new_str.join('-')
+  puts new_str.join('-')
 end
 
-p accum('abcd')
+accum('abcdefghijk')
+# => "A-Bb-Ccc-Dddd-Eeeee-Ffffff-Ggggggg-Hhhhhhhh-Iiiiiiiii-Jjjjjjjjjj-Kkkkkkkkkkk"
 ```
 
 ## Coder Academy
@@ -102,8 +106,10 @@ def octal_convertor(num)
     num /= 8
   end
   octal << num
-  octal.reverse.join.to_i
+  puts octal.reverse.join.to_i
 end
 
-p octal_convertor(1276)
+octal_convertor(1276)
+# base 8
+# => 2374
 ```
