@@ -7,6 +7,32 @@ A collection of my solutions to ruby coding challenges.
 ###### 03/05/20
 
 ```ruby
+# RGB decimal values will return in hexadecimal.
+# Answer should always be 6 characters long.
+# Numbers must be rounded to the closest valid value.
+# rgb(-20, 125, 300) returns 007DFF
+
+def rgb(r, g, b)
+  str = ""
+  [r, g, b].each do |i|
+    if i > 0 && !(i > 255)
+      i = i.to_s(16)
+      i += "0" if i.length < 2
+      str += i
+    elsif i > 255
+      str += "ff"
+    else
+      str += "00"
+    end
+  end
+  str.upcase
+end
+
+rgb(175, 25, 198)
+# => "AF19C6"
+```
+
+```ruby
 # Count all the occurring characters(UTF-8) in string. I
 # 'abababcc' result should be {"a"=>3, "b"=>3, "c"=>2}
 
@@ -15,13 +41,12 @@ def count_chars(s)
   hash.each_key do |key|
     s.chars.each do |letter|
       hash[key] += 1 if letter == key
-    end 
+    end
   end
 end
 
 count_chars("ashdushfiuwekjwnedksjdbfjhabjhebajhwef")
 # => {"a"=>3, "b"=>3, "d"=>3, "e"=>4, "f"=>3, "h"=>5, "i"=>1, "j"=>5, "k"=>2, "n"=>1, "s"=>3, "u"=>2, "w"=>3}
-
 ```
 
 ###### 01/05/20
