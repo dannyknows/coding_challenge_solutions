@@ -4,13 +4,33 @@ A collection of my solutions to ruby coding challenges.
 
 ## Code Wars
 
+###### 03/05/20
+
+```ruby
+# Count all the occurring characters(UTF-8) in string. I
+# 'abababcc' result should be {"a"=>3, "b"=>3, "c"=>2}
+
+def count_chars(s)
+  hash = Hash[s.chars.sort.uniq.collect { |char| [char, 0] }]
+  hash.each_key do |key|
+    s.chars.each do |letter|
+      hash[key] += 1 if letter == key
+    end 
+  end
+end
+
+count_chars("ashdushfiuwekjwnedksjdbfjhabjhebajhwef")
+# => {"a"=>3, "b"=>3, "d"=>3, "e"=>4, "f"=>3, "h"=>5, "i"=>1, "j"=>5, "k"=>2, "n"=>1, "s"=>3, "u"=>2, "w"=>3}
+
+```
+
 ###### 01/05/20
 
 ```ruby
 # You will be given a number and you will need to return it as a string in Expanded Form. For example:
 def expanded_form(num)
   exp = []
-  num.digits.map.each_with_index {|n, i| 
+  num.digits.map.each_with_index {|n, i|
     n == 0? next : exp.push(n.to_s + '0' * i)
   }
   exp.reverse.join(" + ")
