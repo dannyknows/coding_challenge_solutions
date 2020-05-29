@@ -1,6 +1,6 @@
-# Ruby Coding Solutions 🤖
+# Ruby Coding Solutions 🔻
 
-A collection of my solutions to ruby coding challenges.
+A collection of my solutions to Javascript coding challenges.
 
 ## Code Wars
 
@@ -30,6 +30,15 @@ end
 
 rgb(175, 25, 198)
 # => "AF19C6"
+```
+
+```ruby
+
+# def to_camel_case(str)
+
+# str.gsub(/[_-]|\s/, " ").split.map(&:capitalize).join
+
+# end
 ```
 
 ```ruby
