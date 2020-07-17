@@ -1,6 +1,30 @@
 # Ruby Coding Solutions 🔻
 
-A collection of my solutions to Javascript coding challenges.
+A collection of my solutions to Ruby coding challenges.
+
+## DailyCodingProblem.com
+
+###### 16/07/20
+
+```ruby
+#this problem was asked by apple.
+
+#implement a job scheduler which takes in a function f and an integer n, and calls f after n milliseconds.
+
+def function
+  puts "im a function"
+end
+
+def scheduler(func, time)
+  puts "scheduler begin"
+  puts "waiting"
+  sleep(time/1000)
+  puts "begin function"
+  method(func).call
+end
+
+scheduler(:function, 10000)
+```
 
 ## Code Wars
 

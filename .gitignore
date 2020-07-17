@@ -1,2 +1,9 @@
-./DS.store
-./working.rb
+.DS_Store
+
+ruby/working.rb
+
+javascript/working.html
+javascript/working.js
+javascript/working.test.js
+
+python/working.py
