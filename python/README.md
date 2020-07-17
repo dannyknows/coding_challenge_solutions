@@ -7,9 +7,8 @@ A collection of my solutions to Python coding challenges.
 ###### 17/07/20
 
 ```python
-#Implement a function likes :: [String] -> String, which must take in input
-#array, containing the names of people who like an item.
-#It must return the display text as shown in the examples:
+#Implement a function called likes, it must take an array input,
+# containing the names of people who like an item.
 
 def likes(names):
     string = " this"
@@ -24,8 +23,13 @@ def likes(names):
     elif len(names) > 3:
         return ", ".join(names[0:2:]) + ' and %s others' % (len(names) - 2) + ' like' + string
 
-likes(["Alex", "Jacob", "Mark", "Max"])
-likes(["Max", "John", "Mark"])
-likes(["Jacob", "Alex"])
-likes(["Peter"])
-``` 
+
+print(likes(["Jacob", "Alex"]))
+# => Jacob and Alex like this
+
+print(likes(["Max", "John", "Mark"]))
+# => Max, John and Mark like this
+
+print(likes(["Alex", "Jacob", "Mark", "Max"]))
+# => Alex, Jacob and 2 others like this
+```
