@@ -33,3 +33,18 @@ print(likes(["Max", "John", "Mark"]))
 print(likes(["Alex", "Jacob", "Mark", "Max"]))
 # => Alex, Jacob and 2 others like this
 ```
+
+###### 18/07/20
+
+```python
+import re
+
+def get_count(input_str):
+    return len(re.findall(r"[aeiou]", input_str, re.IGNORECASE))
+
+print(get_count("abracadabra"))
+# => 5
+
+print(get_count("o a kak ushakov lil vo kashu kakao"))
+# => 13
+```
