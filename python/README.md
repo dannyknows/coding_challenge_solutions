@@ -6,6 +6,39 @@ A collection of my solutions to Python coding challenges.
 
 ###### 19/07/20
 
+```python 
+# Return true or false if number is square or not, excluding 
+# negative numbers
+
+import math
+
+## python 3.6 😕
+def is_square(n):
+    return n >= 0 and round(math.sqrt(n)) ** 2 == n
+
+# python 3.8 😎
+def is_square(n):
+    return n >= 0 and math.isqrt(n) ** 2 == n
+
+print(is_square(-100))
+#=> false
+print(is_square(45678948576789))
+#=> false
+```
+
+```python
+# Write a function that takes a string and return a new string
+# with all vowels removed.
+
+import re
+
+def disemvowel(string):
+    return re.sub(r"[aeiouAEIOU]", "", string)
+
+print(disemvowel("This website is for losers LOL!"))
+# => Ths wbst s fr lsrs LL!
+```
+
 ```python
 # Return the middle most letting in a given string, if even return both middle
 # characters
