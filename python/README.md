@@ -4,6 +4,43 @@ A collection of my solutions to Python coding challenges.
 
 ## Codewars
 
+###### 19/07/20
+
+```python
+# Return the middle most letting in a given string, if even return both middle
+# characters
+import math
+
+def get_middle(s):
+    mid = len(s)
+    if mid % 2 == 0:
+        ind = math.floor(mid/2)
+        return s[ind-1] + s[ind]
+    else:
+        return s[math.floor(mid/2)]
+
+print(get_middle("middle"))
+# => dd
+print(get_middle("testing"))
+# => t
+```
+
+###### 18/07/20
+
+```python
+# count all vowels in a given string, ignoring y
+import re
+
+def get_count(input_str):
+    return len(re.findall(r"[aeiou]", input_str, re.IGNORECASE))
+
+print(get_count("abracadabra"))
+# => 5
+
+print(get_count("o a kak ushakov lil vo kashu kakao"))
+# => 13
+```
+
 ###### 17/07/20
 
 ```python
@@ -32,19 +69,4 @@ print(likes(["Max", "John", "Mark"]))
 
 print(likes(["Alex", "Jacob", "Mark", "Max"]))
 # => Alex, Jacob and 2 others like this
-```
-
-###### 18/07/20
-
-```python
-import re
-
-def get_count(input_str):
-    return len(re.findall(r"[aeiou]", input_str, re.IGNORECASE))
-
-print(get_count("abracadabra"))
-# => 5
-
-print(get_count("o a kak ushakov lil vo kashu kakao"))
-# => 13
 ```
