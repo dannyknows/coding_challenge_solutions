@@ -7,6 +7,42 @@ A collection of my solutions to Python coding challenges.
 ###### 23/07/20
 
 ```python
+# You will receive an array as parameter that contains 1 or more integers and a number n.
+# Here is a little visualization of the process:
+#    Step 1: Split the array in two:
+#   [1, 2, 5, 7, 2, 3, 5, 7, 8]
+#          /            \
+#    [1, 2, 5, 7]    [2, 3, 5, 7, 8]
+#   Step 2: Put the arrays on top of each other:
+#      [1, 2, 5, 7]
+#   [2, 3, 5, 7, 8]
+#    Step 3: Add them together:
+#   [2, 4, 7, 12, 15]
+#   Step 4: repeat n number of times
+
+def split_and_add(numbers, n):
+    while n > 0:
+        list1 = numbers[:len(numbers)//2]
+        list2 = numbers[len(numbers)//2:]
+        numbers = []
+        if len(list1) < len(list2):
+            list1.insert(0, 0)
+        for x in range(len(list1)):
+            numbers.append(list1[x] + list2[x])
+        n -= 1
+    return numbers
+
+print(split_and_add([1,2,3,4,5], 3))
+# => [15]
+print(split_and_add([1,2,3,4,5], 2))
+# => [5, 10]
+print(split_and_add([32,45,43,23,54,23,54,34], 0))
+# => [32, 45, 43, 23, 54, 23, 54, 34]
+print(split_and_add([3,234,25,345,45,34,234,235,345], 3))
+# => [305, 1195]
+```
+
+```python
 # Write a function, which takes a non-negative integer (seconds) as input and 
 # returns the time in a human-readable format (HH:MM:SS)
 
