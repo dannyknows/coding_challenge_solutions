@@ -4,6 +4,42 @@ A collection of my solutions to Python coding challenges.
 
 ## Codewars
 
+###### 23/07/20
+
+```python
+# Write a function, which takes a non-negative integer (seconds) as input and 
+# returns the time in a human-readable format (HH:MM:SS)
+
+#    HH = hours, padded to 2 digits, range: 00 - 99
+#    MM = minutes, padded to 2 digits, range: 00 - 59
+#    SS = seconds, padded to 2 digits, range: 00 - 59
+
+# The maximum time never exceeds 359999 (99:59:59)
+
+# You can find some examples in the test fixtures.
+
+def make_readable(seconds):
+    time = { "hour": 0, "min": 0, "sec": seconds}
+    if time["sec"] > 59:
+        time["min"] = time["sec"] // 60
+        time["sec"] = time["sec"] % 60
+    if time["min"] > 59:
+        time["hour"] = time["min"] // 60
+        time["min"] = time["min"] % 60
+
+    result = map(lambda i: str(i).zfill(2), time.values())
+    return ":".join(list(result))
+
+print(make_readable(5))
+# => 00:00:05
+print(make_readable(60))
+# => 00:01:00
+print(make_readable(2070))
+# => 00:34:30
+print(make_readable(359999))
+# => 99:59:59
+```
+
 ###### 19/07/20
 
 ```python 
