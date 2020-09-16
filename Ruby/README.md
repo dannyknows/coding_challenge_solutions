@@ -7,8 +7,6 @@ A collection of my solutions to Ruby coding challenges.
 ###### 16/07/20
 
 ```ruby
-#this problem was asked by apple.
-
 #implement a job scheduler which takes in a function f and an integer n, and calls f after n milliseconds.
 
 def function
